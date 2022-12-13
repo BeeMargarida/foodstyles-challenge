@@ -6,3 +6,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.card {
+  background-color: #ffffff;
+  padding: 35px 35px;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 440px;
+}
+
+.input {
+  width: 100%;
+  font-size: 16px;
+  color: #9ea3b2;
+  padding: 10px 0px;
+  border: 0;
+  border-bottom: 1px solid #d7dae0;
+  margin-bottom: 10px;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom: 1px solid #4a77e5;
+  color: #1f2a4b;
+}

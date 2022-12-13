@@ -1,0 +1,36 @@
+.header {
+  text-align: left;
+}
+
+.header > .title {
+  font-size: 22px;
+  font-weight: 100800;
+  color: #1f2a4b;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.login-form > .form-switcher {
+  text-decoration: underline;
+  font-size: 14px;
+  color: #1f2a4b;
+  margin-bottom: 40px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.login-form > .submit {
+  text-align: center;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #4a77e5;
+  background-color: #4a77e5;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 8px;
+}

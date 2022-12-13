@@ -10,6 +10,7 @@ import {
 import { ReactComponent as Logo } from "../../assets/todo.svg";
 import { ReactComponent as Close } from "../../assets/close.svg";
 
+import "../../index.css";
 import "./TodoList.css";
 
 enum Filters {
@@ -18,10 +19,15 @@ enum Filters {
   Incompleted = "incompleted",
 }
 
-function TodoList() {
+interface TodoListProps {
+  onLogout: () => void;
+}
+
+function TodoList({ onLogout }: TodoListProps) {
   const queryClient = useQueryClient();
   const [newTodo, setNewTodo] = useState("");
   const [filter, setFilter] = useState<Filters>(Filters.All);
+  const userEmail = localStorage.getItem("email");
 
   const { data, isLoading } = listTodo({
     completed:
@@ -45,8 +51,6 @@ function TodoList() {
   });
   const deleteMutation = deleteTodo({
     onSuccess: async () => {
-      console.log("here");
-
       await queryClient.invalidateQueries("list-todo");
     },
   });
@@ -60,7 +64,7 @@ function TodoList() {
     setNewTodo("");
     createMutation.mutate({
       text: newTodo,
-      userEmail: "test@test.com",
+      userEmail: userEmail ?? "",
     });
   };
 
@@ -96,7 +100,10 @@ function TodoList() {
   };
 
   return (
-    <div className="todo-list">
+    <div className="card">
+      <button className="logout" onClick={onLogout}>
+        Logout
+      </button>
       <div className="header">
         <Logo />
         <h2 className="title">Todo List</h2>

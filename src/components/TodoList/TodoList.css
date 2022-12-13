@@ -6,6 +6,19 @@
   min-width: 440px;
 }
 
+.logout {
+  background-color: transparent;
+  color: #1f2a4b;
+  border: 0;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 10px 0 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .header {
   text-align: left;
 }
@@ -20,25 +33,12 @@
   width: 100%;
 }
 
-.input-wrapper > .input {
-  width: 100%;
-  font-size: 16px;
-  color: #9ea3b2;
-  padding: 10px 0px;
-  border: 0;
-  border-bottom: 1px solid #d7dae0;
-}
-
-.input-wrapper > .input:focus {
-  outline: none;
-  border-bottom: 1px solid #1f2a4b;
-  color: #1f2a4b;
-}
-
 .todos {
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 15px;
+  max-height: 650px;
+  overflow: auto;
 }
 
 .todos > .todo {
@@ -84,6 +84,7 @@
 }
 
 .filters {
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -94,6 +95,7 @@
   font-size: 14px;
   font-weight: 500;
   color: rgba(31, 42, 75, 0.59);
+  margin: 0;
 }
 
 .filters > .filter {
@@ -101,6 +103,7 @@
   color: #4a77e5;
   text-decoration: underline;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .filters > .filter.selected {

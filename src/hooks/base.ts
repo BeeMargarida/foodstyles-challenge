@@ -16,6 +16,7 @@ export function getJson<T extends object | null, P = unknown>(
   options?: { body?: T; method: HTTPMethod }
 ) {
   const { body, method } = options ?? { body: null, method: "GET" };
+  const accessToken = localStorage.getItem("accessToken");
 
   return fetch(url, {
     body: body ? JSON.stringify(body) : null,
@@ -23,6 +24,7 @@ export function getJson<T extends object | null, P = unknown>(
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
     },
   }).then((response) => {
     if (response.ok) return response.json() as Promise<P>;
