@@ -18,10 +18,10 @@
   text-decoration: underline;
   font-size: 14px;
   color: #1f2a4b;
-  margin-bottom: 40px;
   margin-top: 15px;
   cursor: pointer;
   width: fit-content;
+  margin-bottom: 40px;
 }
 
 .login-form > .submit {
@@ -33,4 +33,10 @@
   color: #ffffff;
   font-size: 16px;
   padding: 8px;
+}
+
+.login-form .error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
 }

@@ -15,6 +15,7 @@ function TodoList({ onLogin }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const saveLogin = (data: User) => {
     localStorage.setItem("email", data.email);
@@ -25,13 +26,20 @@ function TodoList({ onLogin }: LoginProps) {
 
   const signUpMutation = signUp({
     onSuccess: saveLogin,
+    onError: () => {
+      setError("An error occurred, please try again later.");
+    },
   });
   const loginMutation = login({
     onSuccess: saveLogin,
+    onError: () => {
+      setError("Wrong email or password.");
+    },
   });
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
+    setError("");
     if (isLogin) {
       loginMutation.mutate({
         email: email,
@@ -58,7 +66,7 @@ function TodoList({ onLogin }: LoginProps) {
         </p>
       </div>
       <form className="login-form" onSubmit={onSubmit}>
-        {isLogin ? null : (
+        {isLogin ? undefined : (
           <input
             className="input"
             value={name}
@@ -91,6 +99,7 @@ function TodoList({ onLogin }: LoginProps) {
             ? "Don't have an account? Sign up"
             : "Do have an account? Sign in."}
         </a>
+        {error ? <p className="error">{error}</p> : undefined}
         <button className="submit">{isLogin ? "Log In" : "Sign Up"}</button>
       </form>
     </div>
