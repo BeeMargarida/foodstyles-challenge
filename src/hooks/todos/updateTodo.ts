@@ -16,7 +16,7 @@ const updateTodo = async (params: UpdateParams) =>
     }`,
     {
       method: "PUT",
-      body: {}
+      body: {},
     }
   );
 

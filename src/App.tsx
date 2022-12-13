@@ -1,10 +1,10 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query'
+import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import { TodoList } from "./components";
-import './App.css';
+import "./App.css";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   return (
