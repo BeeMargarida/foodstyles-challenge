@@ -1,5 +1,4 @@
-import React, { FormEvent, ChangeEvent, useState } from "react";
-import { useQueryClient } from "react-query";
+import React, { FormEvent, useState } from "react";
 import { login, signUp, User } from "../../hooks";
 import { ReactComponent as Logo } from "../../assets/todo.svg";
 
@@ -21,6 +20,10 @@ function TodoList({ onLogin }: LoginProps) {
     localStorage.setItem("email", data.email);
     localStorage.setItem("accessToken", data.accessToken);
 
+    setEmail("");
+    setName("");
+    setPassword("");
+    setError("");
     onLogin();
   };
 
@@ -94,13 +97,19 @@ function TodoList({ onLogin }: LoginProps) {
             setPassword((event.target as HTMLInputElement).value)
           }
         />
-        <a className="form-switcher" onClick={() => setIsLogin(!isLogin)}>
+        <button
+          type="button"
+          className="form-switcher"
+          onClick={() => setIsLogin(!isLogin)}
+        >
           {isLogin
             ? "Don't have an account? Sign up"
             : "Do have an account? Sign in."}
-        </a>
+        </button>
         {error ? <p className="error">{error}</p> : undefined}
-        <button className="submit">{isLogin ? "Log In" : "Sign Up"}</button>
+        <button type="submit" className="submit">
+          {isLogin ? "Log In" : "Sign Up"}
+        </button>
       </form>
     </div>
   );

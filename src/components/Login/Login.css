@@ -22,6 +22,9 @@
   cursor: pointer;
   width: fit-content;
   margin-bottom: 40px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 
 .login-form > .submit {
